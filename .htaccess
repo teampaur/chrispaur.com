@@ -12,6 +12,9 @@
 Options -MultiViews
 DirectoryIndex index.html index.php
 
+# --- Zeichensatz: die Seiten sind UTF-8, das muss der Server auch sagen ---
+AddDefaultCharset utf-8
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
