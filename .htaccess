@@ -1,0 +1,59 @@
+# ============================================================
+# chrispaur.com - statischer Spiegel der Fassung vom 20.05.2026
+# Stand: 24.08.2026
+#
+# Die vorherige Datei war eine Kopie aus teampaur.com. Sie hat
+# chrispaur.com auf www.teampaur.com umgeleitet, alte Adressen
+# wie /kontakt/ auf TEAM PAUR Seiten geschickt und die eigenen
+# Bilder gesperrt. Sie liegt unveraendert daneben als
+# _VORHER-TEAMPAUR-KOPIE-20260824.htaccess.txt
+# ============================================================
+
+Options -MultiViews
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- Kanonischer Host: ohne www auf www, auf der eigenen Domain ---
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^(.*)$ https://www.chrispaur.com/$1 [R=301,L]
+
+  # --- Startseite: statische index.html ausliefern ---
+  RewriteRule ^$ index.html [L]
+
+  # --- Hotlink-Schutz: Bilder und Videos nur von der eigenen Domain.
+  #     Leerer Verweis (Direktaufruf) und Suchmaschinen sind erlaubt. ---
+  RewriteCond %{HTTP_REFERER} !^$
+  RewriteCond %{HTTP_REFERER} !^https?://([a-z0-9-]+\.)?chrispaur\.com [NC]
+  RewriteCond %{HTTP_REFERER} !^https?://([a-z0-9-]+\.)?teampaur\.com [NC]
+  RewriteCond %{HTTP_REFERER} !^https?://([a-z0-9-]+\.)?google\. [NC]
+  RewriteCond %{HTTP_REFERER} !^https?://([a-z0-9-]+\.)?bing\. [NC]
+  RewriteCond %{HTTP_REFERER} !^https?://([a-z0-9-]+\.)?duckduckgo\. [NC]
+  RewriteCond %{HTTP_REFERER} !^https?://([a-z0-9-]+\.)?facebook\. [NC]
+  RewriteCond %{HTTP_REFERER} !^https?://([a-z0-9-]+\.)?instagram\. [NC]
+  RewriteRule \.(jpe?g|png|gif|webp|svg|mp4)$ - [F,NC]
+</IfModule>
+
+# --- Kompression -------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+
+# --- HTML immer neu pruefen --------------------------------
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# --- Caching statischer Dateien ----------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>
