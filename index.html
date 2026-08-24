@@ -26,12 +26,16 @@ Instagram</a></ul></ul></div></div></div></div></div></footer><div id=mobile-men
 
   function feld(n) { var e = f.elements[n]; return e && e.value ? e.value.trim() : ''; }
 
-  var hinweis = document.createElement('p');
-  hinweis.style.cssText = 'margin:14px 0 0;font-size:14px;line-height:1.5';
-  hinweis.innerHTML = 'Oder direkt schreiben: ' +
+  var kontakt = document.createElement('p');
+  kontakt.style.cssText = 'margin:14px 0 0;font-size:14px;line-height:1.5';
+  kontakt.innerHTML = 'Oder direkt schreiben: ' +
     '<a href="mailto:info@chrispaur.com">info@chrispaur.com</a>' +
     ' &nbsp;&middot;&nbsp; <a href="tel:+436767822495">0043 676 78 22 495</a>';
-  f.appendChild(hinweis);
+  f.appendChild(kontakt);
+
+  var meldung = document.createElement('p');
+  meldung.style.cssText = 'margin:8px 0 0;font-size:14px;line-height:1.5';
+  f.appendChild(meldung);
 
   f.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -42,8 +46,8 @@ Instagram</a></ul></ul></div></div></div></div></div></footer><div id=mobile-men
     if (!mail) { fehlt.push('E-Mail'); }
     if (!text) { fehlt.push('Nachricht'); }
     if (fehlt.length) {
-      hinweis.innerHTML = 'Bitte noch ausfüllen: ' + fehlt.join(', ') + '.';
-      hinweis.style.color = '#c0392b';
+      meldung.textContent = 'Bitte noch ausfüllen: ' + fehlt.join(', ') + '.';
+      meldung.style.color = '#c0392b';
       return;
     }
     var betreff = 'Anfrage von ' + name + ' über chrispaur.com';
@@ -51,8 +55,8 @@ Instagram</a></ul></ul></div></div></div></div></div></footer><div id=mobile-men
                 + 'E-Mail: ' + mail + '\n'
                 + (tel ? 'Telefon: ' + tel + '\n' : '')
                 + '\n' + text + '\n';
-    hinweis.style.color = '';
-    hinweis.textContent = 'Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht.';
+    meldung.style.color = '';
+    meldung.textContent = 'Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht.';
     location.href = 'mailto:info@chrispaur.com'
       + '?subject=' + encodeURIComponent(betreff)
       + '&body=' + encodeURIComponent(koerper);
