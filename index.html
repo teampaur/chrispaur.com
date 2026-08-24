@@ -3,113 +3,156 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Personal Training | Christoph Paur</title>
-<meta name="description" content="Personal Training mit Christoph Paur in Grödig bei Salzburg. Die neue Seite entsteht gerade. Bis dahin: teampaur.com" />
-<meta name="theme-color" content="#F6F4EF" />
+<title>Personal Training | Chris Paur</title>
+<meta name="description" content="Personal Training mit Chris Paur in Grödig bei Salzburg. Eins zu eins, auf Ihr Ziel geplant, im Fortschritt gemessen." />
+<meta name="theme-color" content="#0C0D0F" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Personal Training | Christoph Paur" />
-<meta property="og:description" content="Personal Training mit Christoph Paur in Grödig bei Salzburg. Die neue Seite entsteht gerade." />
+<meta property="og:title" content="Personal Training | Chris Paur" />
+<meta property="og:description" content="Eins zu eins, auf Ihr Ziel geplant, im Fortschritt gemessen. Grödig bei Salzburg." />
 <meta property="og:url" content="https://www.chrispaur.com/" />
 <meta name="twitter:card" content="summary" />
 <style>
-  /* Ohne fremde Schriftserver: nichts wird nachgeladen, die Seite steht
+  /* Keine fremden Schriftserver: nichts wird nachgeladen, die Seite steht
      sofort, und es verlaesst keine Besucherinformation das Haus. */
   :root{
-    --papier:#F6F4EF;
-    --tinte:#14161A;
-    --leise:#6B6A66;
-    --linie:rgba(20,22,26,.14);
+    --grund:#0C0D0F;
+    --ink:#EDEAE4;
+    --stein:#A39B90;      /* warmes Neutral, bewusst kein Bronze */
+    --leise:#6E6862;
+    --linie:rgba(237,234,228,.13);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:"Helvetica Neue",Helvetica,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
-    margin:0;background:var(--papier);color:var(--tinte);
-    font:400 17px/1.6 "Helvetica Neue",Helvetica,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;
-    display:flex;align-items:center;justify-content:center;
-    padding:clamp(28px,6vw,72px);
+    margin:0;color:var(--ink);background:var(--grund);
+    font:400 16px/1.65 var(--sans);
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    min-height:100svh;display:flex;flex-direction:column;
+    padding:clamp(26px,4.4vw,58px) clamp(24px,7vw,96px);
     position:relative;overflow-x:hidden;
   }
+  /* Licht von links oben, sehr flach. Gibt der Flaeche Tiefe ohne Effekt. */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(74% 58% at 16% 4%, rgba(255,246,232,.075), transparent 62%),
+      radial-gradient(96% 78% at 92% 100%, rgba(163,155,144,.05), transparent 58%);
+  }
+  /* Feines Korn, damit die Flaeche nicht digital-glatt wirkt. */
   body::after{
-    content:"";position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.05;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.14;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>");
   }
-  .blatt{width:100%;max-width:660px;position:relative;z-index:1}
 
-  .marke{
-    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--leise);margin:0 0 clamp(26px,6vw,44px);
-    display:flex;align-items:center;gap:14px;
-  }
-  .marke::after{content:"";flex:1;height:1px;background:var(--linie)}
+  .kopf,.mitte,.fuss{position:relative;z-index:1;width:100%}
+  .mitte{flex:1;display:flex;align-items:center;padding:clamp(38px,7vw,84px) 0}
+  .blatt{max-width:780px}
 
+  /* ---- Briefkopf ---- */
+  .kopf{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+  .wort{font-size:clamp(11px,1.4vw,12px);letter-spacing:.42em;text-transform:uppercase;
+    color:var(--ink);white-space:nowrap}
+  .status{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--leise);
+    display:inline-flex;align-items:center;gap:9px;white-space:nowrap}
+  .status::before{content:"";width:5px;height:5px;border-radius:50%;
+    background:var(--stein);opacity:.9}
+
+  /* ---- Aussage ---- */
   h1{
-    margin:0;font-weight:400;
-    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
-    font-size:clamp(36px,7.6vw,62px);line-height:1.1;letter-spacing:-.014em;
+    margin:0;font-family:var(--serif);font-weight:400;
+    font-size:clamp(42px,8.4vw,88px);line-height:1.02;letter-spacing:-.021em;
   }
-  h1 em{font-style:italic;color:var(--leise)}
+  h1 .zeile{display:block}
+  h1 em{font-style:italic;color:var(--stein)}
 
   .lead{
-    margin:clamp(18px,3.6vw,26px) 0 0;max-width:44ch;
-    font-size:clamp(16px,2.2vw,18.5px);color:var(--leise);
+    margin:clamp(22px,3.4vw,34px) 0 0;max-width:36ch;
+    font-size:clamp(16.5px,1.9vw,19px);line-height:1.62;color:var(--stein);
+  }
+  .bau{
+    margin:clamp(14px,2vw,18px) 0 0;max-width:38ch;
+    font-size:clamp(14px,1.6vw,15.5px);color:var(--leise);
   }
 
-  /* Drei Worte, damit auf den ersten Blick klar ist, worum es geht. */
+  /* ---- Marker als gesetzte Zeile, nicht als Chips ---- */
   .marker{
-    margin:clamp(24px,5vw,34px) 0 0;padding:0;list-style:none;
-    display:flex;flex-wrap:wrap;gap:10px 12px;
+    margin:clamp(34px,5.4vw,52px) 0 0;padding:0;list-style:none;
+    display:flex;flex-wrap:wrap;align-items:center;
+    font-size:11.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--stein);
   }
-  .marker li{
-    font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;
-    color:var(--tinte);border:1px solid var(--linie);border-radius:999px;
-    padding:7px 14px;white-space:nowrap;
+  .marker li{display:flex;align-items:center;white-space:nowrap}
+  .marker li+li::before{
+    content:"";width:1px;height:11px;background:var(--linie);
+    margin:0 clamp(14px,2vw,22px);flex:none;
   }
 
-  .strich{height:1px;background:var(--linie);margin:clamp(30px,6vw,46px) 0 clamp(18px,3.6vw,24px)}
+  /* ---- Fuss ---- */
+  .fuss{border-top:1px solid var(--linie);padding-top:clamp(20px,2.6vw,26px);
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;
+    font-size:13.5px;color:var(--leise)}
+  .fuss a{color:var(--ink);text-decoration:none;
+    border-bottom:1px solid transparent;padding-bottom:2px;
+    transition:border-color .3s ease,color .3s ease}
+  .fuss a:hover{border-bottom-color:var(--stein)}
+  .fuss .rechts a{color:var(--stein)}
+  .fuss .rechts a:hover{color:var(--ink)}
 
-  .fuss{display:flex;flex-wrap:wrap;gap:6px 26px;align-items:baseline;
-    font-size:14.5px;color:var(--leise)}
-  .fuss .name{color:var(--tinte)}
-  .fuss a{color:var(--tinte);text-decoration:none;
-    border-bottom:1px solid var(--linie);padding-bottom:1px;
-    transition:border-color .25s ease}
-  .fuss a:hover{border-bottom-color:var(--tinte)}
+  /* ---- Auftritt: langsam und ruhig, nichts springt ---- */
+  @keyframes auf{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .kopf,.blatt>*,.fuss{animation:auf .9s cubic-bezier(.22,.61,.36,1) both}
+  .kopf{animation-delay:.05s}
+  h1{animation-delay:.16s}
+  .lead{animation-delay:.30s}
+  .bau{animation-delay:.38s}
+  .marker{animation-delay:.48s}
+  .fuss{animation-delay:.60s}
+  @media (prefers-reduced-motion: reduce){
+    .kopf,.blatt>*,.fuss{animation:none}
+  }
 
-  .nebenan{margin:clamp(22px,4.4vw,30px) 0 0;font-size:13.5px;color:var(--leise);max-width:46ch}
-  .nebenan a{color:var(--leise);text-decoration:none;border-bottom:1px solid var(--linie)}
-  .nebenan a:hover{color:var(--tinte);border-bottom-color:var(--tinte)}
-
-  @media (prefers-color-scheme: dark){
-    :root{--papier:#101215;--tinte:#EDEAE3;--leise:#93918B;--linie:rgba(237,234,227,.16)}
-    body::after{opacity:.08}
+  @media (max-width:560px){
+    .kopf{flex-direction:column;align-items:flex-start;gap:10px}
+    /* Auf schmalen Geraeten gestapelt statt in einer Zeile: umbrechende
+       Trennstriche haengen sonst am Zeilenanfang und sehen kaputt aus. */
+    .marker{flex-direction:column;align-items:flex-start;gap:9px;
+      font-size:11px;letter-spacing:.17em}
+    .marker li+li::before{display:none}
+    .fuss{flex-direction:column;gap:10px}
   }
 </style>
 </head>
 <body>
-  <main class="blatt">
-    <p class="marke">chrispaur.com</p>
+  <header class="kopf">
+    <span class="wort">Chris&nbsp;Paur</span>
+    <span class="status">In Vorbereitung</span>
+  </header>
 
-    <h1>Personal Training<br />mit <em>Christoph Paur.</em></h1>
+  <main class="mitte">
+    <div class="blatt">
+      <h1>
+        <span class="zeile">Personal Training,</span>
+        <span class="zeile"><em>das Sie weiterbringt.</em></span>
+      </h1>
 
-    <p class="lead">An dieser Seite wird gerade gebaut. In Kürze finden Sie hier alles zu meiner Arbeit als Personal Trainer.</p>
+      <p class="lead">Eins zu eins. Auf Ihr Ziel geplant, in der Technik begleitet, im Fortschritt gemessen.</p>
 
-    <ul class="marker">
-      <li>1:1-Begleitung</li>
-      <li>Trainingsplanung</li>
-      <li>Technik &amp; Fortschritt</li>
-      <li>Grödig bei Salzburg</li>
-    </ul>
+      <p class="bau">An dieser Seite wird gerade gebaut. In Kürze steht hier alles zu meiner Arbeit.</p>
 
-    <div class="strich"></div>
-
-    <p class="fuss">
-      <span class="name">Christoph Paur</span>
-      <a href="mailto:info@chrispaur.com">info@chrispaur.com</a>
-    </p>
-
-    <p class="nebenan">Bis dahin: mehr über mich und den Club auf <a href="https://www.teampaur.com/">teampaur.com</a></p>
+      <ul class="marker">
+        <li>1:1-Begleitung</li>
+        <li>Trainingsplanung</li>
+        <li>Technik &amp; Fortschritt</li>
+        <li>Grödig bei Salzburg</li>
+      </ul>
+    </div>
   </main>
+
+  <footer class="fuss">
+    <span><a href="mailto:info@chrispaur.com">info@chrispaur.com</a></span>
+    <span class="rechts">Mehr über mich und den Club auf <a href="https://www.teampaur.com/">teampaur.com</a></span>
+  </footer>
 </body>
 </html>
