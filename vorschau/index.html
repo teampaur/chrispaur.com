@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chris Paur · Personal Training in Salzburg</title>
+<meta name="description" content="Personal Training auf höchstem Niveau in Grödig bei Salzburg. Privates Studio, 19 Jahre Erfahrung, über 30.000 Trainingsstunden. Kostenloses Probetraining.">
+<link rel="canonical" href="https://www.chrispaur.com/">
+<meta name="theme-color" content="#0A0B0D">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+<meta property="og:title" content="Chris Paur · Personal Training in Salzburg">
+<meta property="og:description" content="Personal Training auf höchstem Niveau. Privates Studio in Grödig bei Salzburg.">
+<meta property="og:url" content="https://www.chrispaur.com/">
+<meta property="og:image" content="https://www.chrispaur.com/site/assets/files/1779/chris_paur--29_kopie.1200x0.jpg">
+<style>
+:root{
+  --grund:#0A0B0D; --tief:#0F1114; --karte:#131519;
+  --ink:#F4F1EA; --leise:rgba(244,241,234,.64); --still:rgba(244,241,234,.40);
+  --linie:rgba(244,241,234,.11); --linie-stark:rgba(244,241,234,.20);
+  --gold:#BFA06A; --gold-hell:#D9BF8C;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --rand:clamp(20px,5vw,64px);
+  --luft:clamp(76px,10vw,140px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--grund);color:var(--ink);
+  font:400 17px/1.7 var(--sans);letter-spacing:.005em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.huelle{width:100%;max-width:1180px;margin:0 auto;padding:0 var(--rand)}
+.schmal{max-width:760px}
+
+/* ---------- Schrift ---------- */
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.022em;line-height:1.08}
+h1{font-size:clamp(38px,6.4vw,76px)}
+h2{font-size:clamp(29px,3.9vw,50px)}
+h3{font-size:clamp(19px,1.6vw,22px);letter-spacing:-.012em;line-height:1.3}
+.marke{
+  display:block;font-size:11px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 22px
+}
+.lead{font-size:clamp(18px,1.7vw,21px);line-height:1.65;color:var(--leise);margin:24px 0 0;max-width:60ch}
+p{margin:0 0 1.1em}
+p:last-child{margin-bottom:0}
+
+/* ---------- Knöpfe ---------- */
+.knopf{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:transparent;-webkit-appearance:none;appearance:none;
+  padding:17px 30px;border-radius:2px;border:1px solid transparent;
+  font:600 12.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;transition:background .25s,color .25s,border-color .25s;
+  white-space:nowrap
+}
+.knopf-gold{background:var(--gold);color:#16120A;border-color:var(--gold)}
+.knopf-gold:hover{background:var(--gold-hell);border-color:var(--gold-hell)}
+.knopf-linie{border-color:var(--linie-stark);color:var(--ink)}
+.knopf-linie:hover{border-color:var(--ink)}
+.knopf-reihe{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+
+/* ---------- Kopfleiste ---------- */
+.kopf{
+  position:fixed;inset:0 0 auto;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:18px var(--rand);
+  background:rgba(10,11,13,0);border-bottom:1px solid transparent;
+  transition:background .3s,border-color .3s,padding .3s;
+}
+.kopf.fest{background:rgba(10,11,13,.86);backdrop-filter:blur(14px);border-bottom-color:var(--linie);padding-top:13px;padding-bottom:13px}
+.logo{display:block;color:var(--ink);width:clamp(132px,15vw,178px)}
+.logo img{width:100%;height:auto;display:block}
+.fuss .logo img{opacity:.7}
+.kopf-rechts{display:flex;align-items:center;gap:26px}
+.kopf-tel{font-size:14px;color:var(--leise);text-decoration:none;letter-spacing:.02em}
+.kopf-tel:hover{color:var(--ink)}
+.kopf .knopf{padding:13px 22px}
+@media(max-width:720px){.kopf-tel{display:none}.kopf .knopf{padding:12px 18px;font-size:11.5px}}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 clamp(56px,8vw,96px);overflow:hidden}
+.hero-bild{position:absolute;inset:0;z-index:0}
+.hero-bild img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.hero-bild::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(10,11,13,.86) 0%,rgba(10,11,13,.42) 34%,rgba(10,11,13,.80) 78%,var(--grund) 100%),
+    linear-gradient(90deg,rgba(10,11,13,.78) 0%,rgba(10,11,13,.24) 62%,rgba(10,11,13,.10) 100%);
+}
+.hero .huelle{position:relative;z-index:1}
+.hero h1{max-width:16ch}
+.hero .lead{max-width:52ch}
+.hinunter{
+  position:absolute;right:var(--rand);bottom:26px;z-index:1;
+  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--still);
+  text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:9px
+}
+.hinunter i{display:block;width:1px;height:34px;background:linear-gradient(var(--still),transparent)}
+@media(max-width:720px){.hinunter{display:none}.hero{padding-bottom:116px}}
+
+/* ---------- Abschnitte ---------- */
+section{position:relative}
+.abschnitt{padding:var(--luft) 0}
+.abschnitt-tief{background:var(--tief)}
+.trenner{height:1px;background:var(--linie);border:0;margin:0}
+.kopfzeile{max-width:64ch}
+.kopfzeile .lead{margin-top:20px}
+
+/* ---------- Versprechen ---------- */
+.punkte{list-style:none;margin:56px 0 0;padding:0;display:grid;gap:0;
+  grid-template-columns:repeat(2,1fr);border-top:1px solid var(--linie)}
+@media(min-width:1040px){.punkte{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:600px){.punkte{grid-template-columns:1fr}}
+.punkte li{display:flex;gap:16px;align-items:baseline;padding:26px 34px 26px 0;border-bottom:1px solid var(--linie);min-height:104px}
+.punkte b{font:600 12px/1 var(--sans);letter-spacing:.14em;color:var(--gold);flex:0 0 auto;padding-top:4px}
+.punkte span{font-size:clamp(17px,1.4vw,19px);line-height:1.45;letter-spacing:-.005em}
+.punkte li.schluss{align-items:center;color:var(--gold-hell);font-size:clamp(17px,1.4vw,19px);line-height:1.45}
+
+/* ---------- Zahlen ---------- */
+.zahlen{display:grid;gap:1px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));background:var(--linie);border:1px solid var(--linie)}
+.zahl{background:var(--grund);padding:clamp(28px,3.4vw,44px) clamp(22px,2.6vw,32px)}
+.abschnitt-tief .zahl{background:var(--tief)}
+.zahl strong{display:block;font-size:clamp(34px,4.4vw,54px);font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.zahl span{display:block;margin-top:14px;font-size:13.5px;line-height:1.5;color:var(--still);letter-spacing:.02em}
+
+/* ---------- Zwei Spalten ---------- */
+.duo{display:grid;gap:clamp(40px,5vw,86px);grid-template-columns:1fr 1fr;align-items:center}
+.duo-bild{position:relative}
+.duo-bild img{width:100%;height:auto;object-fit:cover;aspect-ratio:4/3}
+.duo-bild figcaption{margin-top:12px;font-size:12px;color:var(--still);letter-spacing:.03em}
+@media(max-width:900px){.duo{grid-template-columns:1fr}}
+
+/* ---------- Ablauf ---------- */
+.ablauf{counter-reset:s;display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:56px;border-top:1px solid var(--linie)}
+.ablauf article{padding:34px 30px 34px 0;border-bottom:1px solid var(--linie)}
+.ablauf article::before{
+  counter-increment:s;content:"0" counter(s);
+  display:block;font:600 12px/1 var(--sans);letter-spacing:.16em;color:var(--gold);margin-bottom:20px
+}
+.ablauf h3{margin-bottom:12px}
+.ablauf p{color:var(--leise);font-size:16px;line-height:1.65}
+
+/* ---------- Zitat-Band ---------- */
+.band{position:relative;min-height:clamp(360px,52vw,540px);display:flex;align-items:center;overflow:hidden}
+.band-bild{position:absolute;inset:0}
+.band-bild img{width:100%;height:100%;object-fit:cover}
+.band-bild::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,11,13,.86),rgba(10,11,13,.46) 58%,rgba(10,11,13,.30))}
+.band .huelle{position:relative;z-index:1}
+.band-satz{font-size:clamp(25px,3.4vw,42px);font-weight:600;letter-spacing:-.022em;line-height:1.2;max-width:19ch}
+
+/* ---------- Stimmen ---------- */
+.stimmen{display:grid;gap:clamp(24px,2.6vw,34px);grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-top:58px}
+.stimme{background:var(--karte);border:1px solid var(--linie);display:flex;flex-direction:column}
+.stimme img{width:100%;aspect-ratio:8/5;object-fit:cover}
+.stimme .text{padding:clamp(24px,2.4vw,32px);display:flex;flex-direction:column;gap:18px;flex:1}
+.stimme blockquote{margin:0;font-size:16.5px;line-height:1.62;color:var(--ink)}
+.stimme cite{font-style:normal;margin-top:auto;font-size:13px;line-height:1.5;color:var(--still);letter-spacing:.02em}
+.stimme cite b{display:block;color:var(--leise);font-weight:600;font-size:14px;letter-spacing:.01em;margin-bottom:3px}
+.stimme cite a{color:var(--gold);text-decoration:none}
+.stimme cite a:hover{text-decoration:underline}
+
+/* ---------- Studio ---------- */
+.galerie{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:52px}
+.galerie img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.fakten{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:12px}
+.fakten li{display:flex;gap:14px;align-items:flex-start;font-size:16.5px;line-height:1.55;color:var(--leise)}
+.fakten li::before{content:"";flex:0 0 auto;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:10px}
+
+/* ---------- Kontakt ---------- */
+.kontakt{display:grid;gap:clamp(40px,5vw,86px);grid-template-columns:1fr 1fr;align-items:start}
+@media(max-width:900px){.kontakt{grid-template-columns:1fr}}
+.daten{list-style:none;margin:38px 0 0;padding:0;display:grid;gap:22px}
+.daten li{display:grid;gap:5px}
+.daten dt,.daten .titel{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--still)}
+.daten a,.daten .wert{font-size:18px;color:var(--ink);text-decoration:none;letter-spacing:-.005em}
+.daten a:hover{color:var(--gold)}
+form{display:grid;gap:14px}
+label{display:grid;gap:8px}
+label span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--still)}
+input,textarea{
+  width:100%;background:rgba(255,255,255,.035);border:1px solid var(--linie);border-radius:2px;
+  color:var(--ink);font:400 16px/1.5 var(--sans);padding:15px 16px;transition:border-color .2s,background .2s
+}
+input:focus,textarea:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.055)}
+textarea{resize:vertical;min-height:130px}
+.form-fuss{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:6px}
+.meldung{font-size:14px;line-height:1.5;color:var(--leise);min-height:21px}
+.meldung.fehler{color:#E08B7A}
+
+/* ---------- Fuß ---------- */
+.fuss{border-top:1px solid var(--linie);padding:clamp(44px,5vw,64px) 0 clamp(34px,4vw,48px);background:var(--tief)}
+.fuss-innen{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
+.fuss .logo{width:150px;color:var(--leise)}
+.fuss nav{display:flex;flex-wrap:wrap;gap:22px}
+.fuss nav a{font-size:14px;color:var(--leise);text-decoration:none}
+.fuss nav a:hover{color:var(--ink)}
+.fuss-zeile{margin-top:34px;padding-top:24px;border-top:1px solid var(--linie);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-size:12.5px;color:var(--still)}
+
+/* ---------- Handy-Leiste ---------- */
+.leiste{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:10px;padding:11px 14px calc(11px + env(safe-area-inset-bottom));
+  background:rgba(10,11,13,.94);backdrop-filter:blur(14px);border-top:1px solid var(--linie)
+}
+.leiste .knopf{flex:1;padding:15px 12px;font-size:11.5px}
+@media(max-width:720px){.leiste{display:flex}body{padding-bottom:74px}.marke{letter-spacing:.14em}}
+
+/* ---------- Auftritt ---------- */
+.auf{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+.auf.da{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .auf{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="kopf" id="kopf">
+  <a class="logo" href="#oben" aria-label="Chris Paur, zum Seitenanfang"><img src="/site/templates/layout/logo_web_new.svg" alt="CHRIS PAUR" width="1050" height="191"></a>
+  <div class="kopf-rechts">
+    <a class="kopf-tel" href="tel:+436767822495">0043 676 78 22 495</a>
+    <a class="knopf knopf-gold" href="https://teampaur.as.me/beratungchrispaur" target="_blank" rel="noopener">Probetraining</a>
+  </div>
+</header>
+
+<main id="oben">
+
+<section class="hero">
+  <div class="hero-bild">
+    <img src="/site/assets/files/1779/chris_paur--29_kopie.1200x0.jpg" alt="Das private Trainingsstudio von Chris Paur in Grödig bei Salzburg" fetchpriority="high">
+  </div>
+  <div class="huelle">
+    <span class="marke">Personal Training · Grödig bei Salzburg</span>
+    <h1>Training, das jede Stunde zählt.</h1>
+    <p class="lead">Ein privates Studio. Ein Trainer, der Sie kennt. Neunzehn Jahre Erfahrung und über 30.000 Trainingsstunden, damit aus Ihrem Vorsatz ein Ergebnis wird.</p>
+    <div class="knopf-reihe">
+      <a class="knopf knopf-gold" href="https://teampaur.as.me/beratungchrispaur" target="_blank" rel="noopener">Kostenloses Probetraining</a>
+      <a class="knopf knopf-linie" href="#kontakt">Erst schreiben</a>
+    </div>
+  </div>
+  <a class="hinunter" href="#anspruch"><i></i>Mehr</a>
+</section>
+
+<section class="abschnitt" id="anspruch">
+  <div class="huelle">
+    <div class="kopfzeile auf">
+      <span class="marke">Anspruch</span>
+      <h2>Sie suchen einen Personal Trainer und wollen:</h2>
+    </div>
+    <ul class="punkte auf">
+      <li><b>01</b><span>Effektiv und schnell Ihr Ziel erreichen</span></li>
+      <li><b>02</b><span>Individuelle Betreuung</span></li>
+      <li><b>03</b><span>Absolute Privatsphäre</span></li>
+      <li><b>04</b><span>Einen Motivator</span></li>
+      <li><b>05</b><span>Fachliche Kompetenz und Erfahrung</span></li>
+      <li><b>06</b><span>Absolute Diskretion</span></li>
+      <li><b>07</b><span>Klare Kommunikation</span></li>
+      <li class="schluss">Dann freue ich mich, Sie bald kennenzulernen.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="abschnitt abschnitt-tief">
+  <div class="huelle">
+    <div class="zahlen auf">
+      <div class="zahl"><strong>19</strong><span>Jahre Berufserfahrung als Personal Trainer</span></div>
+      <div class="zahl"><strong>30.000+</strong><span>absolvierte Trainingsstunden</span></div>
+      <div class="zahl"><strong>1.000+</strong><span>betreute Kundinnen und Kunden</span></div>
+      <div class="zahl"><strong>13</strong><span>Jahre hauptberuflich selbstständig</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt" id="ueber">
+  <div class="huelle">
+    <div class="duo">
+      <figure class="duo-bild auf" style="margin:0">
+        <img src="/site/assets/files/1777/chris_paur--13_kopie.800x0-is-pid1-hidpi.jpg" alt="Chris Paur in seinem Studio" loading="lazy">
+      </figure>
+      <div class="auf">
+        <span class="marke">Über mich</span>
+        <h2>Braucht man wirklich einen Trainer?</h2>
+        <p class="lead">Die Antwort darauf finden nur Sie. Aber überlegen Sie kurz, was Sie erreichen wollen.</p>
+        <p style="margin-top:26px;color:var(--leise)">Ein Training, das wirkt. Das Sie sicher führt, statt Sie raten zu lassen. Das sich anpasst, wenn Ihr Körper sich anpasst. Genau dafür gibt es einen erfahrenen Trainer, und er ist weit mehr als eine Anleitung zu Übungen.</p>
+        <p style="color:var(--leise)">Ich schaue mir an, was Ihnen guttut und was nicht, und baue daraus ein Programm, das zu Ihrem Körper, Ihrem Ziel und Ihrem Alltag passt. Ich achte auf jede Bewegung, weil die meisten Verletzungen aus falscher Technik entstehen. Ich merke, wann es Zeit ist, mehr zu verlangen, und wann Erholung der schnellere Weg ist. Und ich bin da, wenn die Couch verlockender aussieht als die Hantel.</p>
+        <p style="color:var(--leise)">Das ist keine zusätzliche Kostenstelle. Das ist die Entscheidung, dass Ihre Zeit im Training tatsächlich zählt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="band-bild">
+    <img src="/site/assets/files/1/personal_training_salzburg.1920x800.jpg" alt="Blick über die Salzburger Berge im Morgenlicht" loading="lazy">
+  </div>
+  <div class="huelle">
+    <p class="band-satz auf">Jenseits der Komfortzone geschehen die wirklichen Veränderungen.</p>
+  </div>
+</section>
+
+<section class="abschnitt" id="ablauf">
+  <div class="huelle">
+    <div class="kopfzeile auf">
+      <span class="marke">So beginnen wir</span>
+      <h2>Vier Schritte, bevor das erste Gewicht in der Hand liegt.</h2>
+    </div>
+    <div class="ablauf auf">
+      <article>
+        <h3>Ihre Ist-Situation</h3>
+        <p>Wir führen ein ausführliches Gespräch. Ich will wissen, warum Sie hier sind und wo ich ansetzen kann. Gesundheitliche Themen gehören genauso dazu wie die Frage, ob Sie bisher richtig trainiert haben.</p>
+      </article>
+      <article>
+        <h3>Ihre Fragen</h3>
+        <p>Sie bekommen den Raum, alles zu fragen, was Sie beschäftigt. Ohne Zeitdruck und ohne Verkaufsgespräch.</p>
+      </article>
+      <article>
+        <h3>Ihre Strategie</h3>
+        <p>Gemeinsam erarbeiten wir den Weg, der Sie am sichersten an Ihr Ziel bringt. Dazu gehört auch, ehrlich zu sagen, welches Angebot am besten zu Ihnen passt.</p>
+      </article>
+      <article>
+        <h3>Ihr Training</h3>
+        <p>Dann wird trainiert. Der Plan bleibt in Bewegung, weil Ihr Körper es auch tut. Stagnation ist keine Option.</p>
+      </article>
+    </div>
+    <div class="knopf-reihe auf">
+      <a class="knopf knopf-gold" href="https://teampaur.as.me/beratungchrispaur" target="_blank" rel="noopener">Kostenloses Probetraining buchen</a>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt abschnitt-tief" id="stimmen">
+  <div class="huelle">
+    <div class="kopfzeile auf">
+      <span class="marke">Kundenerfolge</span>
+      <h2>Menschen, die auf der Bühne liefern müssen.</h2>
+    </div>
+    <div class="stimmen">
+      <figure class="stimme auf" style="margin:0">
+        <img src="/site/assets/files/1699/igor_levit.800x500.jpeg" alt="Igor Levit am Flügel" loading="lazy">
+        <div class="text">
+          <blockquote>„Ich glaub, ich habe noch nie besser trainiert als mit Chris. Im Ernst. Hab viel gesehen, aber er ist wirklich besonders. Danke!!“</blockquote>
+          <cite><b>Igor Levit</b>Pianist · <a href="https://www.igor-levit.de" target="_blank" rel="noopener">igor-levit.de</a></cite>
+        </div>
+      </figure>
+      <figure class="stimme auf" style="margin:0">
+        <img src="/site/assets/files/1717/verena_altenberger_fotografen-credit_ist_peter_mu_ller.800x500.png" alt="Verena Altenberger" loading="lazy">
+        <div class="text">
+          <blockquote>„Chris hat mich als Coach durch mein erstes Jahr als Buhlschaft begleitet. Es war wichtig für mich, fit zu sein, beweglich und generell gestärkt für die Anforderungen auf der Bühne. Mit Chris konnte ich diese Ziele verwirklichen.“</blockquote>
+          <cite><b>Verena Altenberger</b>Schauspielerin · <a href="https://www.verena-altenberger.com" target="_blank" rel="noopener">verena-altenberger.com</a><br>Foto: Peter Müller</cite>
+        </div>
+      </figure>
+      <figure class="stimme auf" style="margin:0">
+        <img src="/site/assets/files/1718/dsc_4377.800x500.jpg" alt="Wolfgang Schneider" loading="lazy">
+        <div class="text">
+          <blockquote>„Chris ist für mich the most personal, personal trainer, und darüber hinaus ein überaus sympathischer und empathischer Mensch, dessen Kompetenz und Freundschaft ich sehr schätze.“</blockquote>
+          <cite><b>Wolfgang Schneider</b>Siemens Niederlassungsleiter a. D.</cite>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt" id="studio">
+  <div class="huelle">
+    <div class="kopfzeile auf">
+      <span class="marke">Der Ort</span>
+      <h2>Ein großer Trainingsraum, in dem außer uns niemand ist.</h2>
+      <p class="lead">Alles, was das Sportlerherz begehrt, und keine Warteschlange davor. Wer zusätzlich auf eigene Faust trainieren möchte, trainiert nebenan im TEAM PAUR, sieben Tage die Woche von 5 bis 23 Uhr.</p>
+    </div>
+    <ul class="fakten auf">
+      <li>Privates Studio ausschließlich für Ihr Training</li>
+      <li>Zugang zum Fitnessclub TEAM PAUR, täglich von 5 bis 23 Uhr</li>
+      <li>Auch dort stehen Ihnen meine Personal Trainer zur Seite</li>
+      <li>Via Sanitas 1, 5082 Grödig, wenige Minuten vor Salzburg</li>
+    </ul>
+    <div class="galerie auf">
+      <img src="/site/assets/files/1779/11.800x600.png" alt="Trainingsfläche mit Kraftstation und Blick ins Grüne" loading="lazy">
+      <img src="/site/assets/files/1779/13.800x600.png" alt="Gerätebereich mit Holzboden" loading="lazy">
+      <img src="/site/assets/files/1779/9.800x600.png" alt="Empfangsbereich" loading="lazy">
+    </div>
+    <div class="knopf-reihe auf">
+      <a class="knopf knopf-linie" href="https://www.teampaur.com/" target="_blank" rel="noopener">TEAM PAUR ansehen</a>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt abschnitt-tief" id="kontakt">
+  <div class="huelle">
+    <div class="kontakt">
+      <div class="auf">
+        <span class="marke">Kontakt</span>
+        <h2>Sind Sie bereit?</h2>
+        <p class="lead">Am schnellsten geht es über den Kalender. Sie können aber genauso gut schreiben oder anrufen.</p>
+        <div class="knopf-reihe">
+          <a class="knopf knopf-gold" href="https://teampaur.as.me/beratungchrispaur" target="_blank" rel="noopener">Termin wählen</a>
+        </div>
+        <ul class="daten">
+          <li><span class="titel">Telefon</span><a href="tel:+436767822495">0043 676 78 22 495</a></li>
+          <li><span class="titel">E-Mail</span><a href="mailto:info@chrispaur.com">info@chrispaur.com</a></li>
+          <li><span class="titel">Adresse</span><span class="wert">TEAM PAUR GmbH<br>Via Sanitas 1, 5082 Grödig</span></li>
+        </ul>
+      </div>
+      <div class="auf">
+        <form id="anfrage" novalidate>
+          <label><span>Name</span><input name="name" type="text" autocomplete="name"></label>
+          <label><span>E-Mail</span><input name="mail" type="email" autocomplete="email"></label>
+          <label><span>Telefon, freiwillig</span><input name="tel" type="tel" autocomplete="tel"></label>
+          <label><span>Nachricht</span><textarea name="text" rows="5"></textarea></label>
+          <div class="form-fuss">
+            <button class="knopf knopf-linie" type="submit">Nachricht öffnen</button>
+          </div>
+          <p class="meldung" id="meldung">Der Knopf öffnet Ihr E-Mail-Programm mit einer fertigen Nachricht an mich.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="fuss">
+  <div class="huelle">
+    <div class="fuss-innen">
+      <div class="logo"><img src="/site/templates/layout/logo_web_new.svg" alt="CHRIS PAUR" width="1050" height="191"></div>
+      <nav>
+        <a href="https://www.teampaur.com/" target="_blank" rel="noopener">TEAM PAUR</a>
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+        <a href="https://www.facebook.com/PersonalTrainerSalzburg/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/sport_physio_lounge/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <div class="fuss-zeile">
+      <span>© 2026 Chris Paur · TEAM PAUR GmbH, Via Sanitas 1, 5082 Grödig</span>
+      <span>Personal Training in Salzburg</span>
+    </div>
+  </div>
+</footer>
+
+<div class="leiste">
+  <a class="knopf knopf-linie" href="tel:+436767822495">Anrufen</a>
+  <a class="knopf knopf-gold" href="https://teampaur.as.me/beratungchrispaur" target="_blank" rel="noopener">Probetraining</a>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Chris Paur · Personal Training","url":"https://www.chrispaur.com/","image":"https://www.chrispaur.com/site/assets/files/1779/chris_paur--29_kopie.1200x0.jpg","telephone":"+436767822495","email":"info@chrispaur.com","address":{"@type":"PostalAddress","streetAddress":"Via Sanitas 1","postalCode":"5082","addressLocality":"Grödig","addressRegion":"Salzburg","addressCountry":"AT"},"areaServed":"Salzburg","priceRange":"$$$","parentOrganization":{"@type":"Organization","name":"TEAM PAUR GmbH","url":"https://www.teampaur.com/"}}
+</script>
+
+<script>
+(function () {
+  /* Kopfleiste wird fest, sobald der Hero durch ist */
+  var kopf = document.getElementById('kopf');
+  var schwelle = function () { return Math.max(120, innerHeight * 0.72); };
+  var pruefen = function () { kopf.classList.toggle('fest', scrollY > schwelle()); };
+  addEventListener('scroll', pruefen, {passive: true});
+  addEventListener('resize', pruefen, {passive: true});
+  pruefen();
+
+  /* Abschnitte treten ein */
+  var teile = document.querySelectorAll('.auf');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < teile.length; i++) { teile[i].classList.add('da'); }
+  } else {
+    var beobachter = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('da'); beobachter.unobserve(e.target); }
+      });
+    }, {rootMargin: '0px 0px -12% 0px', threshold: 0.08});
+    teile.forEach(function (t) { beobachter.observe(t); });
+    setTimeout(function () {
+      for (var k = 0; k < teile.length; k++) { teile[k].classList.add('da'); }
+    }, 4000);
+  }
+
+  /* Anfrage: oeffnet eine fertige E-Mail */
+  var form = document.getElementById('anfrage');
+  var meldung = document.getElementById('meldung');
+  var ruhe = meldung.textContent;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var w = function (n) { var f = form.elements[n]; return f && f.value ? f.value.trim() : ''; };
+    var name = w('name'), mail = w('mail'), tel = w('tel'), text = w('text');
+    var fehlt = [];
+    if (!name) { fehlt.push('Name'); }
+    if (!mail) { fehlt.push('E-Mail'); }
+    if (!text) { fehlt.push('Nachricht'); }
+    if (fehlt.length) {
+      meldung.textContent = 'Bitte noch ausfüllen: ' + fehlt.join(', ') + '.';
+      meldung.classList.add('fehler');
+      return;
+    }
+    meldung.classList.remove('fehler');
+    meldung.textContent = 'Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht.';
+    var betreff = 'Anfrage von ' + name + ' über chrispaur.com';
+    var koerper = 'Name: ' + name + '\n'
+                + 'E-Mail: ' + mail + '\n'
+                + (tel ? 'Telefon: ' + tel + '\n' : '')
+                + '\n' + text + '\n';
+    location.href = 'mailto:info@chrispaur.com'
+      + '?subject=' + encodeURIComponent(betreff)
+      + '&body=' + encodeURIComponent(koerper);
+    setTimeout(function () { meldung.textContent = ruhe; }, 6000);
+  });
+})();
+</script>
+</body>
+</html>
