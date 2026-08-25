@@ -1,32 +1,54 @@
 # ============================================================
-# chrispaur.com - statischer Spiegel der Fassung vom 20.05.2026
-# Stand: 24.08.2026
+# chrispaur.com - One Pager
+# Stand: 25.08.2026
 #
-# Die vorherige Datei war eine Kopie aus teampaur.com. Sie hat
-# chrispaur.com auf www.teampaur.com umgeleitet, alte Adressen
-# wie /kontakt/ auf TEAM PAUR Seiten geschickt und die eigenen
-# Bilder gesperrt. Sie liegt unveraendert daneben als
+# Aufgaben dieser Datei:
+#   1. immer auf www.chrispaur.com
+#   2. alte Adressen sauber auf die neue Startseite fuehren
+#   3. TEAM PAUR Seiten, die hier versehentlich liegen,
+#      zurueck auf teampaur.com schicken
+#   4. Bilder nur von der eigenen Domain ausliefern
+#
+# Die vorherige Fassung liegt daneben als
 # _VORHER-TEAMPAUR-KOPIE-20260824.htaccess.txt
 # ============================================================
 
 Options -MultiViews
 DirectoryIndex index.html index.php
 
-# --- Zeichensatz: die Seiten sind UTF-8, das muss der Server auch sagen ---
-AddDefaultCharset utf-8
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # --- Kanonischer Host: ohne www auf www, auf der eigenen Domain ---
+  # --- 1) Kanonischer Host: ohne www auf www ---
   RewriteCond %{HTTP_HOST} !^www\. [NC]
   RewriteRule ^(.*)$ https://www.chrispaur.com/$1 [R=301,L]
 
-  # --- Startseite: statische index.html ausliefern ---
+  # --- 2) Startseite ---
   RewriteRule ^$ index.html [L]
 
-  # --- Hotlink-Schutz: Bilder und Videos nur von der eigenen Domain.
-  #     Leerer Verweis (Direktaufruf) und Suchmaschinen sind erlaubt. ---
+  # --- 3) TEAM PAUR Seiten zurueck auf teampaur.com ---
+  RewriteRule ^impressum\.html$   /impressum/   [R=301,L]
+  RewriteRule ^datenschutz\.html$ /datenschutz/ [R=301,L]
+  RewriteRule ^(fitnessstudio-salzburg|paurmed|preise|tageskarte|team|wissen)\.html$ https://www.teampaur.com/$1.html [R=301,L]
+  RewriteRule ^(wissen-[a-z0-9-]+)\.html$ https://www.teampaur.com/$1.html [R=301,L]
+  RewriteRule ^app\.html$ https://www.teampaur.com/ [R=301,L]
+
+  # --- 4) Alte Unterseiten auf die passenden Abschnitte ---
+  RewriteRule ^studio/?$    /#studio  [R=301,L]
+  RewriteRule ^kontakt/?$   /#kontakt [R=301,L]
+  RewriteRule ^beratung/?$  /#kontakt [R=301,L]
+  RewriteRule ^physiotherapie-salzburg/?$ https://www.teampaur.com/paurmed.html [R=301,L]
+
+  # --- 5) Alles, was es nicht mehr gibt, auf die Startseite ---
+  #     Dateien, Ordner und Dateiendungen bleiben unberuehrt,
+  #     damit Bilder und Stylesheets weiterhin 404 melden duerfen.
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteCond %{REQUEST_URI} !\.(jpe?g|png|gif|svg|webp|avif|mp4|css|js|ico|txt|xml|json|pdf|woff2?|map)$ [NC]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ / [R=301,L]
+
+  # --- 6) Hotlink-Schutz fuer Bilder und Videos ---
   RewriteCond %{HTTP_REFERER} !^$
   RewriteCond %{HTTP_REFERER} !^https?://([a-z0-9-]+\.)?chrispaur\.com [NC]
   RewriteCond %{HTTP_REFERER} !^https?://([a-z0-9-]+\.)?teampaur\.com [NC]
@@ -40,7 +62,7 @@ AddDefaultCharset utf-8
 
 # --- Kompression -------------------------------------------
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/xml
 </IfModule>
 
 # --- HTML immer neu pruefen --------------------------------
